@@ -19,7 +19,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const storedToken = localStorage.getItem('authToken');
+    const storedToken = localStorage.getItem('Usertoken');
     const storedUser = localStorage.getItem('authUser');
 
     if (storedToken && storedUser) {
@@ -42,10 +42,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const result = response.data?.result;
       if (result?.user?.token) {
         const userData = result.user;
+        console.log("hyyyyy",userData);
+        
 
         setToken(userData.token);
         setUser(userData);
-        localStorage.setItem('authToken', userData.token);
+        localStorage.setItem('Usertoken', userData.token);
         localStorage.setItem('authUser', JSON.stringify(userData));
         return true;
       } else {
@@ -75,7 +77,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
         setToken(userData.token);
         setUser(userData);
-        localStorage.setItem('authToken', userData.token);
+        localStorage.setItem('Usertoken', userData.token);
         localStorage.setItem('authUser', JSON.stringify(userData));
         return true;
       } else {
@@ -92,7 +94,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const logout = () => {
     setUser(null);
     setToken(null);
-    localStorage.removeItem('authToken');
+    localStorage.removeItem('Usertoken');
     localStorage.removeItem('authUser');
   };
 

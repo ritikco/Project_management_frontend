@@ -133,11 +133,11 @@ const LoginPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-6 p-4 bg-gray-50 rounded-md">
+          {/* <div className="mt-6 p-4 bg-gray-50 rounded-md">
             <p className="text-xs text-gray-600 mb-2">Demo credentials:</p>
             <p className="text-xs text-gray-600">Email: demo@example.com</p>
             <p className="text-xs text-gray-600">Password: password123</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

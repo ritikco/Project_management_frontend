@@ -16,7 +16,7 @@ const ProjectFormPage: React.FC = () => {
   const [formData, setFormData] = useState({
     title: '',
     description: '',
-    status: 'active' as Project['status'],
+    status: ' ',
   });
   const [error, setError] = useState('');
 
@@ -49,10 +49,12 @@ const ProjectFormPage: React.FC = () => {
     try {
       if (isEditing && id) {
         await updateProject(id, formData);
-        navigate(`/projects/${id}`);
+        navigate(`/dashboard`);
+        // window.location.reload();
       } else {
         await createProject(formData);
         navigate('/dashboard');
+        
       }
     } catch (err) {
       setError('Failed to save project');

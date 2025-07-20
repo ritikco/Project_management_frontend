@@ -63,7 +63,6 @@ const fetchProjects = async () => {
 
   const fetchTasks = async (projectId: string) => {
     const token = localStorage.getItem("Usertoken");
-    // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODc4OTJkMjhiNTlkMGUzNThmYzdmMWEiLCJlbWFpbCI6InRlc3RAMTIyMy5jb20iLCJpYXQiOjE3NTI3MzI0ODEsImV4cCI6MTc1NTMyNDQ4MX0.KnPfUz04QeGzDLytnEy72r7i06KseCrDRFLOgvZSTKY"
     setLoading(true);
     setError(null);
     try {
@@ -117,7 +116,7 @@ const fetchProjects = async () => {
       });
       console.log(response);
       
-      setProjects(prev => prev.map(p => (p._id === id ? response.data.result : p)));
+      setProjects(prev => prev.map(p => (p.id === id ? response.data.result.project : p)));
     } catch (err) {
       setError('Failed to update project');
       console.error('Update project error:', err);
